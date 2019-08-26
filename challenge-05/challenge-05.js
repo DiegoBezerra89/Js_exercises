@@ -1,50 +1,21 @@
-            //##### EXEMPLO #####
-// function pessoa() {
-//     return {
-//         idade: 1,
-//         nome: 'Diego',
-//         sobrenome: 'Bezerra',
-//         nomeCompleto: function() {
-//             return 'Olá meu nome é' + nome + ' ' + sobrenome;
-//         }
-//     };
-// }
-
-// var diego = pessoa();
-
-
-// function nome(arg) {
-//     return arg;
-// }
-
-// var carro = {
-//     nome: 'Gol',
-//     ano: 1989,
-//     cor: 'vermelho'
-// }
-
-// nome(carro).cor;
-
-
-
 /*
 Crie uma variável qualquer, que receba um array com alguns valores aleatórios
 - ao menos 5 - (fica por sua conta os valores do array).
 */
-var array = ['diego',1,true,'21',29.6];
+let arr = [1, 'Diego' , {a: 'x'}, null, undefined];
 
 /*
 Crie uma função que receba um array como parâmetro, e retorne esse array.
 */
-function myfunction (arg) {
-    return arg;
+function retornaArr(arr) {
+    return arr;
 }
 
 /*
 Imprima o segundo índice do array retornado pela função criada acima.
 */
-console.log( myfunction( array )[1]);
-
+//let newArray = retornaArr(arr);
+console.log(retornaArr(arr)[1]);
 
 /*
 Crie uma função que receba dois parâmetros: o primeiro, um array de valores; e o
@@ -52,26 +23,24 @@ segundo, um número. A função deve retornar o valor de um índice do array que
 no primeiro parâmetro. O índice usado para retornar o valor, deve ser o número passado no
 segundo parâmetro.
 */
-function myFunction2 (arg1,arg2) {
-    return arg1[ arg2 ];
+function retornaArr2(arr, index) {
+    return arr[index];
 }
 
 /*
 Declare uma variável que recebe um array com 5 valores, de tipos diferentes.
 */
-var array2 = ['Diego', 21, 'Renata', true, '21', false];
+let arr2 = [4, 'Renata' , {b: 'y'}, NaN, Infinity];
 
 /*
 Invoque a função criada acima, fazendo-a retornar todos os valores do último
 array criado.
 */
-myFunction2 (array2,0);
-myFunction2 (array2,1);
-myFunction2 (array2,2);
-myFunction2 (array2,3);
-myFunction2 (array2,4);
-/*
+console.log(`${retornaArr2(arr2,0)}, ${retornaArr2(arr2,1)}, ${retornaArr2(arr2,2)}, ${retornaArr2(arr2,3)}, ${retornaArr2(arr2,4)};  `);
 
+
+
+/*
 Crie uma função chamada `book`, que recebe um parâmetro, que será o nome do
 livro. Dentro dessa função, declare uma variável que recebe um objeto com as
 seguintes características:
@@ -85,53 +54,49 @@ propriedades:
 - Se o parâmetro não for passado, a função deve retornar o objeto com todos
 os livros.
 */
-var book = function( bookName ) {
-    var allBooks = {
-        'O senhor dos aneis': {
-            quantidadePaginas: 20,
+function book(bookName) {
+    let allBooks = {
+        'O senhor dos Aneis': {
+            quantidadePaginas: 245,
             autor: 'Tolkien',
-            editora: 'Martins Fontes'
+            editora: 'Martins'
         },
         'Game of thrones': {
-            quantidadePaginas: 350,
+            quantidadePaginas: 14567,
             autor: 'Martin',
-            editora: 'Flecha'
+            editora: 'saraiva'
         },
-        'Biblia': {
-            quantidadePaginas: 1900,
-            autor: 'Deus',
-            editora: 'jerusalem'
+        'Harry Potter': {
+            quantidadePaginas: 350,
+            autor: 'Howling',
+            editora: 'Arqueiro'
         }
-    };
-    // if (!bookName) {
-    //     return allBooks;
-    // }
-    // return allBooks[ bookName ];
-    return !bookName ? allbooks : allbooks[ bookName ];  
+    }
+    return bookName ? allBooks[bookName] : allBooks; 
 }
 
 /*
 Usando a função criada acima, imprima o objeto com todos os livros.
 */
-console.log(book());
+book('');
 
 /*
 Ainda com a função acima, imprima a quantidade de páginas de um livro qualquer,
 usando a frase:
 "O livro [NOME_DO_LIVRO] tem [X] páginas!"
 */
-console.log('o livro O senhor dos aneis tem ' + book("O senhor dos aneis").quantidadePaginas + ' páginas');
+console.log(`O livro "O Senhor dos aneis" tem ${book('O senhor dos Aneis').quantidadePaginas} páginas!`);
 
 /*
 Ainda com a função acima, imprima o nome do autor de um livro qualquer, usando
 a frase:
 "O autor do livro [NOME_DO_LIVRO] é [AUTOR]."
 */
-console.log('O autor do livro Game of thrones é o ' + book('Game of thrones').autor + '.');
+console.log(`A autora do livro "Harry Potter" é a ${book('Harry Potter').autor}.`);
 
 /*
 Ainda com a função acima, imprima o nome da editora de um livro qualquer, usando
 a frase:
 "O livro [NOME_DO_LIVRO] foi publicado pela editora [NOME_DA_EDITORA]."
 */
-console.log('O livro Biblia foi publicado pela editora ' + book('Biblia').editora + '.');
+console.log(`O livro "Game of thrones" foi publicado pela editora ${book('Game of thrones').editora}.`);
