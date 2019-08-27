@@ -1,4 +1,4 @@
-(function(){
+{
     // Envolva todo o código desse arquivo em uma IIFE (incluindo esse comentário).
 
     /*
@@ -8,23 +8,26 @@
     'Entrou ao menos uma vez!'
     Qual loop você deve usar para que essa mensagem seja mostrada no console?
     */
-    var once = false;
-    do {
-        console.log('Entrou ao menos uma vez!');
-    } while(once);
+    let once = false;
+    do{
+        console.log('Entrou pelo menos uma vez');
+    }while(once);
 
     /*
     Crie um objeto chamado `person`, que receba as seguintes propriedades:
     - 'name', 'age', 'weight' e 'birthday'. Preencha com os valores corretos
     para o nome, idade, peso e data de nascimento dessa pessoa.
     */
-    var person = {
-        name: 'Diego',
-        age: 29,
-        weight: 77.7,
-        birthday: '21/11/1989'
-    };
+    function Person(name, age, weight, birthday){
+        this.name = name;
+        this.age = age;
+        this.weight = weight;
+        this.birthday = birthday;
+    }
 
+    let diego = new Person('Diego', 29, 78, '21/11/1989');
+    
+    
     /*
     Use um loop para percorrer o objeto criado acima, mostrando no console
     a frase:
@@ -34,9 +37,13 @@
     Após o loop, mostre a frase:
     'The person has [COUNTER] properties'
     */
-    for( var prop in person) {
-        console.log('The ' + prop + ' of person is ' + person[prop] + '.');
+    let counter = 0;
+    for(let prop in diego) {
+        console.log(`The property ${prop} of person is ${diego[prop]}`);
+        counter++;
     }
+    console.log(`The person has ${counter} properties.`);
+    
     
     // console.log('the person has ' + counter + ' properties.');    
 
@@ -47,25 +54,27 @@
     Após a função, mostrar a mensagem no console:
     'The person has more than 25 years old? [TRUE/FALSE]'
     */
-    function moreThan(age) {
-        console.log('The person has more than 25 years old?');
-        return person.age > age ? true : false;
+    function moreThan(years, person) {
+        console.log(`The person id older than ${years}?`);
+        return person.age > years ? true : false;
     }
+    moreThan(35, diego);
+    moreThan(14, diego);
+   
 
     /*
     Faça um loop de 0 a 20, que adicione cada número como um item de um
     array chamado `numbers`. Se o contador for maior que 10, saia do loop.
     Mostre no console os números no array.
     */
-    console.log( 'De 0 a 10:' );
-    var numbers = [];
-    for(var i = 0; i <= 20; i++) {
-        numbers.push(i);
-        console.log(numbers[i]);
-        if(i >= 10){
+    let numbers = [];
+    for(let i = 0; i <= 20; i++) {
+        if(i > 10){
             break;
-        }
+        } numbers.push(i);
     }
+    console.log(numbers);
+
     
 
     /*
@@ -74,16 +83,11 @@
     esses. Se o número for ímpar, pular para o próximo número.
     Mostrar no console os números do array.
     */
-    console.log('pares de 0 a 20');
-    var numbers = [];
-    for( var i = 0; i <= 20; i++ ){
-        if(i % 2 == 1){
+    numbers = [];
+    for(let i = 0; i <= 20; i++){
+        if(i % 2 === 1){
             continue;
-        }
-        numbers.push(i);
-    }
-    console.log(numbers);
-
-    var arr = [1,3,8,4,9,2,];
-    console.log(arr.sort());
-})();
+        } numbers.push(i);
+    }   
+    console.log(numbers); 
+}
