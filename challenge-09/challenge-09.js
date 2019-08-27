@@ -1,5 +1,3 @@
-(function(){
-
     /*
     Crie uma IIFE que envolva todo o código desse arquivo. Faça também a
     indentação correta do código, para ficar dentro da IIFE.
@@ -82,17 +80,18 @@
     por parâmetro, INVOCADA, e passando a ela por parâmetro os dois valores
     que foram passadas para a primeira função `calculator`.
     */
-    function calculator( value1, value2 ) {
-        return function( callback ) {
-            return callback( value1, value2);
-        };
+    function calculator(num1, num2) {
+        return function (callback) {
+            return callback(num1, num2);
+        }
     }
+
 
     /*
     Declare uma variável chamada `sum`, e atribua a ela a função `calculator`,
     passando dois números por parâmetro.
     */
-    var sum = calculator ( 4 , 5 );
+    let sum = calculator(4,6);
 
     /*
     Sabemos que `sum` agora tem uma função atribuída a ela, que é o retorno de
@@ -103,9 +102,9 @@
     uma função anônima que irá retornar a soma dos dois números que essa função
     anônima tem como seus argumentos.
     */
-    console.log( 'O resultado da soma é: ' + sum(function(x,y) {
-        return x + y;
-    }) + '.' );
+    console.log(sum(function(num1, num2) {
+        return num1 + num2;
+    }));
     // ?
 
     /*
@@ -113,12 +112,10 @@
     `division` e `mod`, e atribua à elas `calculator`, passando números
     diferentes para cada chamada.
     */
-
-    var subtraction = calculator(9,6);
-    var multiplication = calculator(9,6);
-    var divison = calculator(9,6);
-    var mod = calculator(9,6);
-    var nome = calculator('Diego', 'Bezerra');
+    let subtraction, multiply, division; 
+    subtraction = calculator(23, 10);
+    multiply = calculator(3, 6);
+    division = calculator(40, 5);
     /*
     Mostre as variáveis acima no `console` (uma chamada de console por variável),
     criando a função de `callback` que faz o cálculo para subração, multiplicação,
@@ -126,19 +123,15 @@
     As suas respostas devem estar abaixo dos `console.log` referentes à cada
     chamada.
     */
+    console.log(subtraction(function(num1, num2) {
+        return num1 - num2;
+    }));
 
-    console.log( 'O resultado da subtração é:' );
-    console.log(nome(function(x,y) { return x + ' ' + y }));
-    // ?
+    console.log(multiply(function(num1, num2) {
+        return num1 * num2;
+    }));
 
-    console.log( 'O resultado da multiplicação é:' );
-    console.log(multiplication(function(x,y) { return x * y }));
-    // ?
-
-    console.log( 'O resultado da divisão é:' );
-    console.log(divison(function(x,y) { return x / y }));
-    // ?
-
-    console.log( 'O resto da divisão é:' );
-    console.log(mod(function(x,y) { return x % y }));
-})();
+    console.log(division(function(num1, num2) {
+        return num1 / num2;
+    }));
+   
