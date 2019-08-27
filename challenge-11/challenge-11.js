@@ -75,8 +75,6 @@
     }
     console.log(numbers);
 
-    
-
     /*
     Faça outro loop de 0 a 20, que adicione a um array chamado `numbers` (já
     criado acima, só precisa ser reiniciado) números de 0 a 20, inclusive
