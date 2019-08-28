@@ -76,23 +76,35 @@
     no formato abaixo:
         "[PROPRIEDADE]: [VALOR]"
     */
-    
+    for(let i = 0; i < books.length; i++) {
+        for(let prop in books[i]){
+            console.log(`${prop}: ${books[i][prop]}`);
+        }
+    }
+
     /*
     Crie um array chamado `myName`. Cada item desse array deve ser uma letra do
     seu nome. Adicione seu nome completo no array.
     */
-    
+    let myName = ['D', 'i', 'e', 'g', 'o'];
+
     /*
     Juntando todos os itens do array, mostre no console seu nome.
     */
-
+    console.log(myName.join(''));
     
     /*
     Ainda usando o objeto acima, mostre no console seu nome invertido.
     */
-    
+    myName.reverse();
+    myName.join('');
+    console.log(myName);
+
+
     /*
     Mostre todos os itens do array acima, odenados alfabéticamente.
     */
-   
+    myName.reverse();
+    myName.sort();
+    
 }
