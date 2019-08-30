@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cronômetro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+        <!--
+        O desafio de hoje será um pequeno projeto: um cronômetro!
+        As regras para criação do cronômetro são as seguintes:
+        1. Crie um arquivo index.html e adicione esse script a ele;
+        2. Crie um campo `input` do tipo `text`, e inicie-o com um valor 0 (zero).
+        Ele será o nosso cronômetro;
+        3. Crie 3 botões para as ações do cronômetro: Start, Stop e Reset;
+        4. Ao clicar em Start, o valor do campo deve ser incrementado de 1 em 1, a
+        cada segundo;
+        5. Ao clicar em Stop, o cronômetro deve parar de contar;
+        6. Ao clicar em Reset, o cronômetro deve zerar e parar de contar.
+        
+        Utilize o atributo data-js para nomear o campo e os botões. Você pode
+        usar o nome que achar melhor, desde que ele seja semântico, ou seja, o nome
+        dado ao elemento HTML deve definir o que o elemento é ou o que ele faz.
+        -->
+        <div class="maindiv">
+            <div>
+                <input data-js="screen" type="text" value="0"><br>
+            </div>
+            <div class="buttons">
+                <button data-js="start">Start</button>
+                <button data-js="stop">Stop</button>
+                <button data-js="reset">Reset</button>
+            </div>
+        </div>
+
+        <script>
+            var counter = 0;
+            var temporizador;
+            var start = document.querySelector('[data-js="start"]');
+            var stop = document.querySelector('[data-js="stop"]');
+            var reset = document.querySelector('[data-js="reset"]');
+            var screen = document.querySelector('[data-js="screen"]');
+
+
+            
+                start.addEventListener('click', function() {
+                temporizador = setInterval(timer, 1000);   
+                });
+                stop.addEventListener('click', function(){
+                    clearInterval(temporizador);
+                    //start.addEventListener('click', startClock());
+                }, false);
+                reset.addEventListener('click', function(){
+                    clearInterval(temporizador);
+                    counter = 0;
+                    screen.value = 0;
+                }, false);
+            function timer(){
+                screen.value = counter;
+                if(counter > 100)
+                    return;
+                counter++;    
+            }
+
+            
+
+
+
+            // let counter = 0;
+            // var $button = document.querySelector('[data-js="button"]');
+            // let temporizador;
+            // function timer() {
+            //     console.log('Timer: ', counter++);
+            //     if(counter > 100)
+            //         return;
+            // }
+            // temporizador = setInterval(timer, 1000);
+            // $button.addEventListener('click', function(){
+            //     clearInterval(temporizador);
+            // }, false);
+        
+
+            
+        </script>
+</body>
+</html>

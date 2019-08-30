@@ -1,0 +1,22 @@
+body{
+    width: 50%;
+}
+
+
+.maindiv {
+    padding: 30px;
+    background-color: dodgerblue;
+    width: 300px;
+    text-align: center;
+    display: block;
+}
+
+.buttons{
+    margin-top: 10px;
+}
+
+button{
+    color: #121212;
+    border-radius: 3px;
+    border-color: #b9b9b9;
+}
